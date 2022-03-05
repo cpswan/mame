@@ -4,8 +4,9 @@
 // MAME Reference driver for Grant Searle's Simple Z80 Computer
 // http://www.searle.wales/
 
-// RC2014 Mini added by Chris Swan
+// RC2014 Mini & Micro added by Chris Swan
 // https://rc2014.co.uk/full-kits/rc2014-mini/
+// https://rc2014.co.uk/full-kits/rc2014-micro/
 
 // All the common emulator stuff is here
 #include "emu.h"
@@ -166,10 +167,16 @@ ROM_START(rc2014mini)
 	ROM_LOAD( "r0000009.bin",    0x0000, 0x10000, CRC(3fb1ced7) SHA1(40a030b931ebe6cca654ce056c228297f245b057))
 ROM_END
 
+ROM_START(rc2014micro)
+	ROM_REGION( 0x10000, "maincpu",0 )
+	ROM_LOAD( "r0000009.bin",    0x0000, 0x10000, CRC(3fb1ced7) SHA1(40a030b931ebe6cca654ce056c228297f245b057))
+ROM_END
+
 } // anonymous namespace
 
 
 // This ties everything together
-//    YEAR  NAME            PARENT    COMPAT    MACHINE        INPUT          CLASS             INIT           COMPANY           FULLNAME                FLAGS
-COMP( 2007, gsz80,          0,        0,        gsz80,         0,             gsz80_state,      empty_init,    "Grant Searle",   "Simple Z-80 Machine",  MACHINE_NO_SOUND_HW )
-COMP( 2015, rc2014mini,     gsz80,    0,        rc2014mini,    rc2014mini,    rc2014mini_state, empty_init,    "Z80Kits",        "RC2014 Mini",          MACHINE_NO_SOUND_HW )
+//    YEAR  NAME            PARENT      COMPAT    MACHINE        INPUT          CLASS             INIT           COMPANY           FULLNAME                FLAGS
+COMP( 2007, gsz80,          0,          0,        gsz80,         0,             gsz80_state,      empty_init,    "Grant Searle",   "Simple Z-80 Machine",  MACHINE_NO_SOUND_HW )
+COMP( 2015, rc2014mini,     gsz80,      0,        rc2014mini,    rc2014mini,    rc2014mini_state, empty_init,    "Z80Kits",        "RC2014 Mini",          MACHINE_NO_SOUND_HW )
+COMP( 2019, rc2014micro,    gsz80,      0,        rc2014mini,    rc2014mini,    rc2014mini_state, empty_init,    "Z80Kits",        "RC2014 Micro",         MACHINE_NO_SOUND_HW )
